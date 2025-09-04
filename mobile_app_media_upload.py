@@ -21,6 +21,7 @@ from datetime import timedelta
 import uuid
 import requests
 from flask import make_response
+import ssl
 app = Flask(__name__)
 
 
@@ -122,11 +123,19 @@ def invoke():
     if 'Content-Type' in upstream.headers:
         resp.headers['Content-Type'] = upstream.headers['Content-Type']
     return resp        
-        
+            
+
+
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=9096,
+    context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
+    context.load_cert_chain('/app/keys/xr-cert.pem', '/app/keys/xr-key.pem')
+
+    app.run(
+        host="0.0.0.0",
+        port=9096,
         debug=False,
-        # If you have SSL certificates, you can use them like this:
-        ssl_context=('/app/keys/xr-cert.pem', '/app/keys/xr-key.pem'))
+        ssl_context=context
+    )
+
 
 ##########----------BEST----PERFECT-----------GREAT-----------ALL BUGS OVER----------###################
