@@ -1,5 +1,5 @@
 flask
 flask-cors
+flask_session
 requests
-google-cloud-aiplatform
-vertexai
+pymongo

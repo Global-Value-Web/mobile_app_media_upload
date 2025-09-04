@@ -24,7 +24,7 @@ jobs:
 
       - name: Build and push Docker image
         run: |
-          IMAGE_NAME=ghcr.io/global-value-web/gemini25pro-app:latest
+          IMAGE_NAME=ghcr.io/global-value-web/mobile_app_media_upload-app:latest
           docker build -t $IMAGE_NAME .
           docker push $IMAGE_NAME
 
@@ -35,9 +35,9 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           password: ${{ secrets.SERVER_PASS }}
           script: |
-            IMAGE_NAME=ghcr.io/global-value-web/gemini25pro-app:latest
+            IMAGE_NAME=ghcr.io/global-value-web/mobile_app_media_upload-app:latest
             docker login ghcr.io -u Global-Value-Web -p ${{ secrets.PAT }}
             docker pull $IMAGE_NAME
-            docker stop gemini25pro-app || true
-            docker rm gemini25pro-app || true
-            docker run -d --restart=always -p 5002:5002 --name gemini25pro-app $IMAGE_NAME
+            docker stop mobile_app_media_upload-app || true
+            docker rm mobile_app_media_upload-app || true
+            docker run -d --restart=always -p 9096:9096 --name mobile_app_media_upload-app $IMAGE_NAME
