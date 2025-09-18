@@ -149,6 +149,6 @@ if __name__ == '__main__':
     app.run(host="0.0.0.0", port=9096,
         debug=False,
         # If you have SSL certificates, you can use them like this:
-        ssl_context=("/app/ssl/cert.pem", "/app/ssl/key.pem"))
+        ssl_context=("/app/keys/xr-cert.pem", "/app/keys/xr-key.pem"))
 
 ##########----------BEST----PERFECT-----------GREAT-----------ALL BUGS OVER----------###################
