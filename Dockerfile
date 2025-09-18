@@ -27,4 +27,4 @@ COPY . .
 EXPOSE 9096
 
 # Run your app
-CMD ["python", "MobileAppMediaUpload.py"]
+CMD ["python", "mobile_app_media_upload.py"]

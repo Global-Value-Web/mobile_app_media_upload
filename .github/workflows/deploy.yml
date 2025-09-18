@@ -29,17 +29,17 @@ jobs:
     
       - name: Build and push Docker image
         run: |
-          $IMAGE_NAME="ghcr.io/global-value-web/MobileAppMediaUpload_app:latest"
+          $IMAGE_NAME="ghcr.io/global-value-web/mobile_app_media_upload_app:latest"
           docker build -t $IMAGE_NAME .
           docker push $IMAGE_NAME
 
       - name: Deploy on same server
         run: |
-          $IMAGE_NAME="ghcr.io/global-value-web/MobileAppMediaUpload_app:latest"
+          $IMAGE_NAME="ghcr.io/global-value-web/mobile_app_media_upload_app:latest"
           docker pull $IMAGE_NAME
           # Stop container if it exists
-          if (docker ps -a -q -f name=MobileAppMediaUpload_app) {
-             docker stop MobileAppMediaUpload_app
-             docker rm MobileAppMediaUpload_app
+          if (docker ps -a -q -f name=mobile_app_media_upload_app) {
+             docker stop mobile_app_media_upload_app
+             docker rm mobile_app_media_upload_app
           }
-          docker run -d --restart=always -p 9096:9096 --name MobileAppMediaUpload_app -v C:/inetpub/viabl/deploymentServer2/apps/_scripts/Whatsapp/images:/app/uploads/images -v C:/inetpub/viabl/deploymentServer2/apps/_scripts/Whatsapp/audios:/app/uploads/audios -v C:/keys:/app/keys -e SECRET_KEY="${{ secrets.SECRET_KEY }}" $IMAGE_NAME
+          docker run -d --restart=always -p 9096:9096 --name mobile_app_media_upload_app -v C:/inetpub/viabl/deploymentServer2/apps/_scripts/Whatsapp/images:/app/uploads/images -v C:/inetpub/viabl/deploymentServer2/apps/_scripts/Whatsapp/audios:/app/uploads/audios -v C:/keys:/app/keys -e SECRET_KEY="${{ secrets.SECRET_KEY }}" $IMAGE_NAME
