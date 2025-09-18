@@ -42,4 +42,4 @@ jobs:
              docker stop mobile_app_media_upload_app
              docker rm mobile_app_media_upload_app
           }
-          docker run -d --restart=always -p 9096:9096 --name mobile_app_media_upload_app -v C:/inetpub/viabl/deploymentServer2/apps/_scripts/Whatsapp/images:/app/uploads/images -v C:/inetpub/viabl/deploymentServer2/apps/_scripts/Whatsapp/audios:/app/uploads/audios -v C:/keys:/app/keys -e SECRET_KEY="${{ secrets.SECRET_KEY }}" $IMAGE_NAME
+          docker run -d --restart=always -p 9096:9096 --name mobile_app_media_app -v C:/inetpub/viabl/deploymentServer2/apps/_scripts/Whatsapp/images:/app/uploads/images -v C:/inetpub/viabl/deploymentServer2/apps/_scripts/Whatsapp/audios:/app/uploads/audios -v C:/inetpub/viabl/deploymentServer2/apps/_scripts/ssl:/app/ssl -e SECRET_KEY="${{ secrets.SECRET_KEY }}" $IMAGE_NAME
