@@ -5,7 +5,7 @@ Created on Wed Nov 20 18:05:38 2024
 @author: Administrator
 """
 
-##########----------BEST----PERFECT-----------GREAT-----------ALL BUGS OVER----------###################
+##########----------BEST----PERFECT-----------GREAT----------ALL BUGS OVER----------###################
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from flask_session import Session
